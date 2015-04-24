@@ -17,6 +17,9 @@
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
 
+    <!--FA-->
+    <link rel="stylesheet" href="app/bower_components/font-awesome/css/font-awesome.css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -68,10 +71,10 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Simple Sidebar</h1>
+                        <a href="#menu-toggle" class="fa fa-arrow-left fa-2x btn btn-default" id="menu-toggle"></a><h1>Simple Sidebar</h1>
                         <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
                         <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                        
                     </div>
                 </div>
             </div>
@@ -92,6 +95,20 @@
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
+
+        if($("#wrapper").hasClass("toggled")){
+
+            $("#menu-toggle").removeClass("fa-arrow-left");
+            $("#wrapper").addClass("toggled");
+            $("#menu-toggle").addClass("fa-arrow-right");
+
+        }else{
+
+            $("#menu-toggle").hasClass("fa-arrow-right");
+            $("#menu-toggle").removeClass("fa-arrow-right");
+            $("#menu-toggle").addClass("fa-arrow-left");
+        }
+
     });
     </script>
 
